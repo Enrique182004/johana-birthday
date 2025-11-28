@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✨ Something Magical Awaits ✨</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Quicksand:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pastel-pink: #FFD6E8;
+            --pastel-lavender: #E6D9F5;
+            --pastel-mint: #D4F1E8;
+            --pastel-peach: #FFE5D4;
+            --pastel-yellow: #FFF4D6;
+            --pastel-blue: #D6E9FF;
+            --dark-purple: #6B5B8C;
+            --soft-white: #FFFEF9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, var(--pastel-lavender) 0%, var(--pastel-pink) 25%, var(--pastel-peach) 50%, var(--pastel-mint) 75%, var(--pastel-blue) 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .star {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s ease-in-out infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.5); }
+        }
+
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .shape {
+            position: absolute;
+            opacity: 0.15;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(180deg); }
+        }
+
+        .container {
+            text-align: center;
+            z-index: 10;
+            padding: 60px 40px;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(20px);
+            border-radius: 40px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 20px 60px rgba(107, 91, 140, 0.2);
+            max-width: 600px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .mystery-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--dark-purple);
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5); }
+            50% { text-shadow: 2px 2px 20px rgba(255, 214, 232, 0.8); }
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--dark-purple);
+            margin-bottom: 40px;
+            font-weight: 300;
+            opacity: 0.9;
+            animation: fadeIn 1.5s ease-out 0.3s backwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 0.9; }
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+            animation: fadeIn 2s ease-out 0.6s backwards;
+        }
+
+        .time-box {
+            background: rgba(255, 255, 255, 0.6);
+            padding: 25px 20px;
+            border-radius: 20px;
+            min-width: 100px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+            animation: popIn 0.5s ease-out backwards;
+        }
+
+        .time-box:nth-child(1) { animation-delay: 0.8s; }
+        .time-box:nth-child(2) { animation-delay: 1s; }
+        .time-box:nth-child(3) { animation-delay: 1.2s; }
+        .time-box:nth-child(4) { animation-delay: 1.4s; }
+
+        @keyframes popIn {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .time-box:hover {
+            transform: scale(1.1) rotate(5deg);
+            border-color: var(--pastel-pink);
+            box-shadow: 0 10px 30px rgba(255, 214, 232, 0.5);
+        }
+
+        .time-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--dark-purple);
+            display: block;
+            line-height: 1;
+        }
+
+        .time-label {
+            font-size: 0.9rem;
+            color: var(--dark-purple);
+            margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+
+        .message {
+            font-size: 1.1rem;
+            color: var(--dark-purple);
+            margin-top: 40px;
+            font-weight: 400;
+            line-height: 1.6;
+            animation: fadeIn 2.5s ease-out 1.6s backwards;
+        }
+
+        .sparkle {
+            display: inline-block;
+            animation: sparkleRotate 4s linear infinite;
+        }
+
+        @keyframes sparkleRotate {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            25% { transform: rotate(90deg) scale(1.2); }
+            50% { transform: rotate(180deg) scale(1); }
+            75% { transform: rotate(270deg) scale(1.2); }
+        }
+
+        .celebration {
+            display: none;
+            font-size: 4rem;
+            margin: 20px 0;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: var(--pastel-pink);
+            animation: confettiFall 3s linear infinite;
+        }
+
+        @keyframes confettiFall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 25px;
+                margin: 20px;
+            }
+
+            .mystery-text {
+                font-size: 2rem;
+            }
+
+            .time-box {
+                min-width: 70px;
+                padding: 20px 15px;
+            }
+
+            .time-number {
+                font-size: 2.2rem;
+            }
+
+            .time-label {
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    <div class="floating-shapes" id="shapes"></div>
+
+    <div class="container">
+        <h1 class="mystery-text">Something Magical Awaits <span class="sparkle">✨</span></h1>
+        <p class="subtitle">A special day is approaching...</p>
+        
+        <div class="countdown" id="countdown">
+            <div class="time-box">
+                <span class="time-number" id="days">00</span>
+                <span class="time-label">Days</span>
+            </div>
+            <div class="time-box">
+                <span class="time-number" id="hours">00</span>
+                <span class="time-label">Hours</span>
+            </div>
+            <div class="time-box">
+                <span class="time-number" id="minutes">00</span>
+                <span class="time-label">Minutes</span>
+            </div>
+            <div class="time-box">
+                <span class="time-number" id="seconds">00</span>
+                <span class="time-label">Seconds</span>
+            </div>
+        </div>
+
+        <div class="celebration" id="celebration">🎉 🎂 🎈</div>
+        
+        <p class="message" id="message">
+            The universe is conspiring to make this day extraordinary... ✨
+        </p>
+    </div>
+
+    <script>
+        // Create floating stars
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 50; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            starsContainer.appendChild(star);
+        }
+
+        // Create floating shapes
+        const shapesContainer = document.getElementById('shapes');
+        const shapes = ['🌸', '🦋', '🌙', '⭐', '💫', '🌺', '🎀', '💝'];
+        for (let i = 0; i < 15; i++) {
+            const shape = document.createElement('div');
+            shape.className = 'shape';
+            shape.textContent = shapes[Math.floor(Math.random() * shapes.length)];
+            shape.style.left = Math.random() * 100 + '%';
+            shape.style.top = Math.random() * 100 + '%';
+            shape.style.fontSize = (Math.random() * 30 + 20) + 'px';
+            shape.style.animationDelay = Math.random() * 5 + 's';
+            shape.style.animationDuration = (Math.random() * 10 + 15) + 's';
+            shapesContainer.appendChild(shape);
+        }
+
+        // Countdown logic
+        const targetDate = new Date('2026-03-10T00:00:00').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance < 0) {
+                document.getElementById('countdown').style.display = 'none';
+                document.getElementById('celebration').style.display = 'block';
+                document.getElementById('message').innerHTML = '🎉 HAPPY BIRTHDAY! 🎉<br>Today is YOUR magical day! 🎂✨';
+                createConfetti();
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = String(days).padStart(2, '0');
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+        }
+
+        function createConfetti() {
+            const colors = ['#FFD6E8', '#E6D9F5', '#D4F1E8', '#FFE5D4', '#FFF4D6', '#D6E9FF'];
+            setInterval(() => {
+                for (let i = 0; i < 3; i++) {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.animationDelay = Math.random() * 2 + 's';
+                    document.body.appendChild(confetti);
+                    setTimeout(() => confetti.remove(), 3000);
+                }
+            }, 300);
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
